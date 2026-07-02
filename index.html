@@ -3,21 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cavero Family Child Care - #1 en Rancho Cucamonga</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title data-i18n="page_title">Cavero Family Child Care - #1 en Rancho Cucamonga</title>
     <style>
-        :root {
-            --primary: #4A6FA5;
-            --secondary: #FFB347;
-            --accent: #66BB6A;
-            --light: #F8F9FA;
-            --dark: #333333;
-            --gray: #6C757D;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -25,843 +12,787 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: #333;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            line-height: 1.3;
+        /* Top Language Bar */
+        .language-bar {
+            background: #1a1a2e;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .language-selector label {
+            color: white;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        .lang-btn.active {
+            background: #f5a623;
+            border-color: #f5a623;
+            color: white;
+        }
+
+        .lang-flag {
+            font-size: 1.1rem;
         }
 
         /* Header */
         header {
-            background-color: white;
-            box-shadow: var(--shadow);
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
-            top: 0;
+            top: 40px;
             z-index: 1000;
         }
 
-        .header-container {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
         }
 
-        .logo i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-right: 10px;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-
-        .logo-text span {
-            color: var(--secondary);
-            font-weight: 500;
+        .logo span {
+            color: #f5a623;
         }
 
         nav ul {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
 
-        nav ul li {
-            margin-left: 25px;
-        }
-
-        nav ul li a {
+        nav a {
             text-decoration: none;
-            color: var(--dark);
+            color: #333;
             font-weight: 500;
-            transition: var(--transition);
-            padding: 5px 0;
-            position: relative;
+            transition: color 0.3s;
         }
 
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            left: 0;
-            bottom: 0;
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover:after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
+        nav a:hover {
+            color: #2c5aa0;
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #6A93CB 100%);
+        #inicio {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 80px 0;
+            padding: 4rem 2rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="white" opacity="0.03" d="M0,0 L100,0 L100,100 Z"></path></svg>');
-            background-size: cover;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .hero h2 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+        .badge {
+            display: inline-block;
+            background: #f5a623;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .hero p {
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #2c5aa0;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Award Section */
+        .award-showcase {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .award-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .award-title {
+            color: #f5a623;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .award-subtitle {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
         }
 
-        .badge {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary);
-            padding: 14px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            padding: 80px 0;
-            background-color: white;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .gallery-item {
+        .award-image-wrapper {
             position: relative;
-            overflow: hidden;
+            display: inline-block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 3px solid #f5a623;
+            box-shadow: 0 0 40px rgba(245, 166, 35, 0.4), 0 20px 60px rgba(0,0,0,0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .award-image-wrapper:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 60px rgba(245, 166, 35, 0.6), 0 25px 70px rgba(0,0,0,0.6);
+        }
+
+        .award-image-wrapper img {
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
-            box-shadow: var(--shadow);
-            height: 250px;
+            display: block;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+        .award-badge-2026 {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #f5a623;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: bounce 2s ease-in-out infinite;
+            z-index: 2;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* Ratings Section */
-        .ratings {
-            padding: 80px 0;
-            background-color: white;
+        /* Galería */
+        #galeria {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c5aa0;
         }
 
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
         }
 
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
+        /* Calificaciones */
+        #calificaciones {
+            padding: 4rem 2rem;
+            background: white;
         }
 
         .ratings-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .rating-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .rating-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .rating-source {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
+        .rating-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
         }
 
-        .rating-source i {
+        .rating-card .rank {
             font-size: 2rem;
-            color: var(--primary);
-            margin-right: 10px;
+            font-weight: bold;
+            color: #f5a623;
+            margin: 1rem 0;
         }
 
-        .rating-source h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-
-        .stars {
-            color: var(--secondary);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .rating-info {
-            color: var(--gray);
-            margin-bottom: 10px;
-        }
-
-        .rating-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Services */
-        .services {
-            padding: 80px 0;
-            background-color: #F0F4F8;
+        /* Servicios */
+        #servicios {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .service-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
         }
 
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
+            color: #2c5aa0;
+            margin-bottom: 1rem;
         }
 
-        /* Contact */
-        .contact {
-            padding: 80px 0;
-            background-color: white;
+        /* Contacto */
+        #contacto {
+            padding: 4rem 2rem;
+            background: white;
         }
 
         .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
         }
 
         .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+        .contact-info p {
+            margin-bottom: 0.5rem;
         }
 
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-right: 15px;
-            width: 30px;
-        }
-
-        .contact-form {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .form-control {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: var(--transition);
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
-        }
-
-        .submit-btn {
-            background-color: var(--primary);
+        .contact-form button {
+            background: #2c5aa0;
             color: white;
+            padding: 1rem 2rem;
             border: none;
-            padding: 14px 30px;
-            border-radius: 5px;
+            border-radius: 30px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            transition: var(--transition);
-            width: 100%;
+            transition: background 0.3s;
         }
 
-        .submit-btn:hover {
-            background-color: #3a5a8c;
+        .contact-form button:hover {
+            background: #1e3d6f;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background: #1a1a2e;
             color: white;
-            padding: 50px 0 20px;
+            padding: 3rem 2rem 1rem;
         }
 
-        .footer-container {
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-logo h3 {
+        .footer-section h4 {
+            color: #f5a623;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
             color: white;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .footer-logo span {
-            color: var(--secondary);
-        }
-
-        .footer-logo p {
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
             opacity: 0.8;
         }
 
-        .footer-links h4, .footer-contact h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.4rem;
-            }
-        }
-
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                padding: 20px 0;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0;
-                text-align: center;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 12px 20px;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h2 {
+            h1 {
                 font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 60px 0;
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
             }
 
-            .hero h2 {
-                font-size: 1.8rem;
+            .contact-container {
+                grid-template-columns: 1fr;
             }
 
-            .section-title h2 {
-                font-size: 1.8rem;
+            .language-bar {
+                padding: 0.5rem 1rem;
             }
 
-            .rating-card, .service-card {
-                padding: 20px;
+            header {
+                top: 50px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-child"></i>
-                <div class="logo-text">
-                    <h1>Cavero <span>Family Child Care</span></h1>
-                </div>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
+    <!-- Language Bar - Barra de Idioma -->
+    <div class="language-bar">
+        <div class="language-selector">
+            <label data-i18n="language_label">Idioma:</label>
+            <button class="lang-btn active" data-lang="es" onclick="changeLanguage('es')">
+                <span class="lang-flag">🇪🇸</span> ES
             </button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#calificaciones">Calificaciones</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+            <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">
+                <span class="lang-flag">🇺🇸</span> EN
+            </button>
         </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">👶 Cavero <span>Family Child Care</span></div>
+            <ul>
+                <li><a href="#inicio" data-i18n="nav_home">Inicio</a></li>
+                <li><a href="#servicios" data-i18n="nav_services">Servicios</a></li>
+                <li><a href="#galeria" data-i18n="nav_gallery">Galería</a></li>
+                <li><a href="#calificaciones" data-i18n="nav_ratings">Calificaciones</a></li>
+                <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero" id="inicio">
-        <div class="container hero-content">
-            <div class="badge">#1 en Rancho Cucamonga</div>
-            <h2>Cuidado Infantil Profesional y Familiar</h2>
-            <p>En Cavero Family Child Care, proporcionamos un entorno seguro, afectuoso y educativo para el desarrollo de su hijo. Nuestro enfoque familiar garantiza atención personalizada y dedicada.</p>
-            <a href="#contacto" class="cta-button">Solicitar Información</a>
+    <!-- Hero Section -->
+    <section id="inicio">
+        <div class="hero-content">
+            <div class="badge" data-i18n="hero_badge">#1 en Rancho Cucamonga</div>
+            <h1 data-i18n="hero_title">Cuidado Infantil Profesional y Familiar</h1>
+            <p data-i18n="hero_description">En Cavero Family Child Care, proporcionamos un entorno seguro, afectuoso y educativo para el desarrollo de su hijo. Nuestro enfoque familiar garantiza atención personalizada y dedicada.</p>
+            <a href="#contacto" class="btn" data-i18n="hero_button">Solicitar Información</a>
         </div>
     </section>
 
-    <section class="gallery" id="galeria">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestras Instalaciones y Actividades</h2>
-                <p>Un vistazo a nuestro entorno diseñado para el aprendizaje y la diversión de los más pequeños.</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="20250923_144918.jpg" alt="Actividades en Cavero Child Care"></div>
-                <div class="gallery-item"><img src="IMG-20250925-WA0011.jpg" alt="Instalaciones"></div>
-                <div class="gallery-item"><img src="20251013_144153.jpg" alt="Área de juegos"></div>
-                <div class="gallery-item"><img src="5be9067f-746c-417d-8846-2e61041836ab.jpg" alt="Área de juegos"></div>
-                <div class="gallery-item"><img src="20251014_172038.jpg" alt="Manualidades"></div>
-                <div class="gallery-item"><img src="20251114_101515.jpg" alt="Aprendizaje temprano"></div>
-                <div class="gallery-item"><img src="20251022_142939.jpg" alt="Aprendizaje temprano"></div>
-                <div class="gallery-item"><img src="3bb3c191-faa6-413c-a44a-53de04c1a038.jpg" alt="Aprendizaje temprano"></div>
-                <div class="gallery-item"><img src="20251211_103426.jpg" alt="Ambiente familiar"></div>
+    <!-- Award Showcase Section -->
+    <section class="award-showcase">
+        <div class="award-container">
+            <h2 class="award-title" data-i18n="award_title">🏆 Premio BusinessRate 2026</h2>
+            <p class="award-subtitle" data-i18n="award_subtitle">Reconocidos como el Mejor Centro de Cuidado Infantil</p>
+            <div class="award-image-wrapper">
+                <div class="award-badge-2026" data-i18n="award_badge">BEST<br>2026</div>
+                <img src="businessrate-2026-award.png" alt="BusinessRate Best of 2026 Award - Cavero Family Child Care">
             </div>
         </div>
     </section>
 
-    <section class="ratings" id="calificaciones">
-        <div class="container">
-            <div class="section-title">
-                <h2>Reconocimientos y Calificaciones</h2>
-                <p>Nuestra excelencia en cuidado infantil ha sido reconocida por las principales plataformas de reseñas.</p>
+    <!-- Galería -->
+    <section id="galeria">
+        <h2 class="section-title" data-i18n="gallery_title">Nuestras Instalaciones y Actividades</h2>
+        <p class="section-subtitle" data-i18n="gallery_subtitle">Un vistazo a nuestro entorno diseñado para el aprendizaje y la diversión de los más pequeños.</p>
+    </section>
+
+    <!-- Calificaciones -->
+    <section id="calificaciones">
+        <h2 class="section-title" data-i18n="ratings_title">Reconocimientos y Calificaciones</h2>
+        <p class="section-subtitle" data-i18n="ratings_subtitle">Nuestra excelencia en cuidado infantil ha sido reconocida por las principales plataformas de reseñas.</p>
+        <div class="ratings-grid">
+            <div class="rating-card">
+                <h3>Google Reviews</h3>
+                <div class="rank">#1</div>
+                <p data-i18n="rating_google_text">Ranked #1 en Rancho Cucamonga</p>
+                <p><strong data-i18n="rating_google_date">Julio 2025</strong></p>
             </div>
-            <div class="ratings-grid">
-                <div class="rating-card">
-                    <div class="rating-source">
-                        <i class="fab fa-google"></i>
-                        <h3>Google Reviews</h3>
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="rating-info">Ranked #1 en Rancho Cucamonga</p>
-                    <p class="rating-date">Julio 2025</p>
-                </div>
-                <div class="rating-card">
-                    <div class="rating-source">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>BusinessRate</h3>
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="rating-info">Excelencia en cuidado infantil</p>
-                    <p class="rating-date">2025 - Jay-Care</p>
-                </div>
-                <div class="rating-card">
-                    <div class="rating-source">
-                        <i class="fas fa-award"></i>
-                        <h3>Top Rated</h3>
-                    </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="rating-info">Servicio excepcional en California</p>
-                    <p class="rating-date">Rancho Cucamonga, CA</p>
-                </div>
+            <div class="rating-card">
+                <h3>BusinessRate</h3>
+                <div class="rank">⭐⭐⭐⭐⭐</div>
+                <p data-i18n="rating_business_text">Excelencia en cuidado infantil</p>
+                <p><strong data-i18n="rating_business_date">2025 - Jay-Care</strong></p>
+            </div>
+            <div class="rating-card">
+                <h3>Top Rated</h3>
+                <div class="rank"></div>
+                <p data-i18n="rating_top_text">Servicio excepcional en California</p>
+                <p><strong data-i18n="rating_top_date">Rancho Cucamonga, CA</strong></p>
             </div>
         </div>
     </section>
 
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos una amplia gama de servicios diseñados para satisfacer las necesidades de desarrollo de cada niño.</p>
+    <!-- Servicios -->
+    <section id="servicios">
+        <h2 class="section-title" data-i18n="services_title">Nuestros Servicios</h2>
+        <p class="section-subtitle" data-i18n="services_subtitle">Ofrecemos una amplia gama de servicios diseñados para satisfacer las necesidades de desarrollo de cada niño.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3 data-i18n="service_babies_title">👶 Cuidado para Bebés</h3>
+                <p data-i18n="service_babies_text">Atención especializada para bebés con un enfoque en su desarrollo físico y emocional temprano, en un entorno seguro y estimulante.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
-                    <h3>Cuidado para Bebés</h3>
-                    <p>Atención especializada para bebés con un enfoque en su desarrollo físico y emocional temprano, en un entorno seguro y estimulante.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-puzzle-piece"></i>
-                    </div>
-                    <h3>Actividades Educativas</h3>
-                    <p>Programas de aprendizaje basados en juegos que fomentan el desarrollo cognitivo, social y emocional de los niños.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Alimentación Saludable</h3>
-                    <p>Proporcionamos comidas y meriendas nutritivas y equilibradas, adaptadas a las necesidades dietéticas de cada niño.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Horarios Flexibles</h3>
-                    <p>Opciones de cuidado a tiempo completo, parcial y horarios extendidos para adaptarnos a las necesidades de las familias.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Entorno Familiar</h3>
-                    <p>Ambiente cálido y familiar donde cada niño recibe atención personalizada y se siente como en casa.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Preparación Preescolar</h3>
-                    <p>Programa diseñado para preparar a los niños para el preescolar, desarrollando habilidades sociales y académicas básicas.</p>
-                </div>
+            <div class="service-card">
+                <h3 data-i18n="service_educational_title"> Actividades Educativas</h3>
+                <p data-i18n="service_educational_text">Programas de aprendizaje basados en juegos que fomentan el desarrollo cognitivo, social y emocional de los niños.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="service_food_title"> Alimentación Saludable</h3>
+                <p data-i18n="service_food_text">Proporcionamos comidas y meriendas nutritivas y equilibradas, adaptadas a las necesidades dietéticas de cada niño.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="service_hours_title"> Horarios Flexibles</h3>
+                <p data-i18n="service_hours_text">Opciones de cuidado a tiempo completo, parcial y horarios extendidos para adaptarnos a las necesidades de las familias.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="service_family_title"> Entorno Familiar</h3>
+                <p data-i18n="service_family_text">Ambiente cálido y familiar donde cada niño recibe atención personalizada y se siente como en casa.</p>
+            </div>
+            <div class="service-card">
+                <h3 data-i18n="service_preschool_title">🎓 Preparación Preescolar</h3>
+                <p data-i18n="service_preschool_text">Programa diseñado para preparar a los niños para el preescolar, desarrollando habilidades sociales y académicas básicas.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contacto</h2>
-                <p>Póngase en contacto con nosotros para obtener más información o programar una visita.</p>
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2 class="section-title" data-i18n="contact_title">Contacto</h2>
+        <p class="section-subtitle" data-i18n="contact_subtitle">Póngase en contacto con nosotros para obtener más información o programar una visita.</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 data-i18n="contact_info_title">Información de Contacto</h3>
+                <p>📍 Rancho Cucamonga, California</p>
+                <p> (909) 850-9786</p>
+                <p>️ info@caverofamilychildcare.com</p>
+                <p data-i18n="contact_hours">🕐 Lunes a Viernes: 6:00 AM - 12:00 AM</p>
+                <p style="margin-top: 1rem; font-weight: bold; color: #f5a623;" data-i18n="contact_ranking">⭐ Calificación #1 en Rancho Cucamonga</p>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Rancho Cucamonga, California</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <p>(909) 850-9786</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>info@caverofamilychildcare.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <p>Lunes a Viernes: 6:00 AM - 12:00 AM</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-star"></i>
-                        <p>Calificación #1 en Rancho Cucamonga</p>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Solicitar Información</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nombre Completo</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Teléfono</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="childAge">Edad del Niño(a)</label>
-                            <input type="text" id="childAge" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" class="form-control" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Solicitud</button>
-                    </form>
-                </div>
+            <div class="contact-form">
+                <h3 data-i18n="contact_form_title">Solicitar Información</h3>
+                <form>
+                    <input type="text" data-i18n-placeholder="form_name" placeholder="Nombre Completo" required>
+                    <input type="email" data-i18n-placeholder="form_email" placeholder="Correo Electrónico" required>
+                    <input type="tel" data-i18n-placeholder="form_phone" placeholder="Teléfono">
+                    <input type="text" data-i18n-placeholder="form_child_age" placeholder="Edad del Niño(a)">
+                    <textarea data-i18n-placeholder="form_message" placeholder="Mensaje" rows="4"></textarea>
+                    <button type="submit" data-i18n="form_submit">Enviar Solicitud</button>
+                </form>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-logo">
-                    <h3>Cavero <span>Family Child Care</span></h3>
-                    <p>Proporcionando cuidado infantil excepcional y familiar en Rancho Cucamonga.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#galeria">Galería</a></li>
-                        <li><a href="#calificaciones">Calificaciones</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Rancho Cucamonga, CA</p>
-                    <p><i class="fas fa-phone"></i> (909) 850-9786</p>
-                    <p><i class="fas fa-envelope"></i> info@caverofamilychildcare.com</p>
-                    <p><i class="fas fa-clock"></i> Lun-Vie: 6AM-12AM</p>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Cavero Family Child Care</h4>
+                <p data-i18n="footer_description">Proporcionando cuidado infantil excepcional y familiar en Rancho Cucamonga.</p>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Cavero Family Child Care. Todos los derechos reservados. | Ranked #1 en Rancho Cucamonga</p>
+            <div class="footer-section">
+                <h4 data-i18n="footer_links_title">Enlaces Rápidos</h4>
+                <a href="#inicio" data-i18n="nav_home">Inicio</a>
+                <a href="#servicios" data-i18n="nav_services">Servicios</a>
+                <a href="#galeria" data-i18n="nav_gallery">Galería</a>
+                <a href="#calificaciones" data-i18n="nav_ratings">Calificaciones</a>
+                <a href="#contacto" data-i18n="nav_contact">Contacto</a>
             </div>
+            <div class="footer-section">
+                <h4 data-i18n="footer_contact_title">Contacto</h4>
+                <p>📍 Rancho Cucamonga, CA</p>
+                <p>📞 (909) 850-9786</p>
+                <p>✉️ info@caverofamilychildcare.com</p>
+                <p data-i18n="footer_hours">🕐 Lun-Vie: 6AM-12AM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer_copyright">© 2026 Cavero Family Child Care. Todos los derechos reservados. | Ranked #1 en Rancho Cucamonga</p>
         </div>
     </footer>
 
+    <!-- JavaScript para cambio de idioma -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            if(name && email) {
-                alert(`¡Gracias ${name}! Hemos recibido tu solicitud. Te contactaremos pronto en ${email}.`);
-                contactForm.reset();
+        const translations = {
+            es: {
+                page_title: "Cavero Family Child Care - #1 en Rancho Cucamonga",
+                language_label: "Idioma:",
+                nav_home: "Inicio",
+                nav_services: "Servicios",
+                nav_gallery: "Galería",
+                nav_ratings: "Calificaciones",
+                nav_contact: "Contacto",
+                hero_badge: "#1 en Rancho Cucamonga",
+                hero_title: "Cuidado Infantil Profesional y Familiar",
+                hero_description: "En Cavero Family Child Care, proporcionamos un entorno seguro, afectuoso y educativo para el desarrollo de su hijo. Nuestro enfoque familiar garantiza atención personalizada y dedicada.",
+                hero_button: "Solicitar Información",
+                award_title: "🏆 Premio BusinessRate 2026",
+                award_subtitle: "Reconocidos como el Mejor Centro de Cuidado Infantil",
+                award_badge: "BEST<br>2026",
+                gallery_title: "Nuestras Instalaciones y Actividades",
+                gallery_subtitle: "Un vistazo a nuestro entorno diseñado para el aprendizaje y la diversión de los más pequeños.",
+                ratings_title: "Reconocimientos y Calificaciones",
+                ratings_subtitle: "Nuestra excelencia en cuidado infantil ha sido reconocida por las principales plataformas de reseñas.",
+                rating_google_text: "Ranked #1 en Rancho Cucamonga",
+                rating_google_date: "Julio 2025",
+                rating_business_text: "Excelencia en cuidado infantil",
+                rating_business_date: "2025 - Jay-Care",
+                rating_top_text: "Servicio excepcional en California",
+                rating_top_date: "Rancho Cucamonga, CA",
+                services_title: "Nuestros Servicios",
+                services_subtitle: "Ofrecemos una amplia gama de servicios diseñados para satisfacer las necesidades de desarrollo de cada niño.",
+                service_babies_title: " Cuidado para Bebés",
+                service_babies_text: "Atención especializada para bebés con un enfoque en su desarrollo físico y emocional temprano, en un entorno seguro y estimulante.",
+                service_educational_title: "📚 Actividades Educativas",
+                service_educational_text: "Programas de aprendizaje basados en juegos que fomentan el desarrollo cognitivo, social y emocional de los niños.",
+                service_food_title: "🥗 Alimentación Saludable",
+                service_food_text: "Proporcionamos comidas y meriendas nutritivas y equilibradas, adaptadas a las necesidades dietéticas de cada niño.",
+                service_hours_title: "🕐 Horarios Flexibles",
+                service_hours_text: "Opciones de cuidado a tiempo completo, parcial y horarios extendidos para adaptarnos a las necesidades de las familias.",
+                service_family_title: "🏠 Entorno Familiar",
+                service_family_text: "Ambiente cálido y familiar donde cada niño recibe atención personalizada y se siente como en casa.",
+                service_preschool_title: "🎓 Preparación Preescolar",
+                service_preschool_text: "Programa diseñado para preparar a los niños para el preescolar, desarrollando habilidades sociales y académicas básicas.",
+                contact_title: "Contacto",
+                contact_subtitle: "Póngase en contacto con nosotros para obtener más información o programar una visita.",
+                contact_info_title: "Información de Contacto",
+                contact_hours: " Lunes a Viernes: 6:00 AM - 12:00 AM",
+                contact_ranking: "⭐ Calificación #1 en Rancho Cucamonga",
+                contact_form_title: "Solicitar Información",
+                form_name: "Nombre Completo",
+                form_email: "Correo Electrónico",
+                form_phone: "Teléfono",
+                form_child_age: "Edad del Niño(a)",
+                form_message: "Mensaje",
+                form_submit: "Enviar Solicitud",
+                footer_description: "Proporcionando cuidado infantil excepcional y familiar en Rancho Cucamonga.",
+                footer_links_title: "Enlaces Rápidos",
+                footer_contact_title: "Contacto",
+                footer_hours: "🕐 Lun-Vie: 6AM-12AM",
+                footer_copyright: "© 2026 Cavero Family Child Care. Todos los derechos reservados. | Ranked #1 en Rancho Cucamonga"
+            },
+            en: {
+                page_title: "Cavero Family Child Care - #1 in Rancho Cucamonga",
+                language_label: "Language:",
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_gallery: "Gallery",
+                nav_ratings: "Ratings",
+                nav_contact: "Contact",
+                hero_badge: "#1 in Rancho Cucamonga",
+                hero_title: "Professional and Family Child Care",
+                hero_description: "At Cavero Family Child Care, we provide a safe, loving, and educational environment for your child's development. Our family approach ensures personalized and dedicated attention.",
+                hero_button: "Request Information",
+                award_title: "🏆 BusinessRate Award 2026",
+                award_subtitle: "Recognized as the Best Child Care Center",
+                award_badge: "BEST<br>2026",
+                gallery_title: "Our Facilities and Activities",
+                gallery_subtitle: "A glimpse into our environment designed for the learning and fun of the little ones.",
+                ratings_title: "Awards and Ratings",
+                ratings_subtitle: "Our excellence in child care has been recognized by the leading review platforms.",
+                rating_google_text: "Ranked #1 in Rancho Cucamonga",
+                rating_google_date: "July 2025",
+                rating_business_text: "Excellence in child care",
+                rating_business_date: "2025 - Jay-Care",
+                rating_top_text: "Exceptional service in California",
+                rating_top_date: "Rancho Cucamonga, CA",
+                services_title: "Our Services",
+                services_subtitle: "We offer a wide range of services designed to meet the developmental needs of each child.",
+                service_babies_title: " Baby Care",
+                service_babies_text: "Specialized care for babies with a focus on their early physical and emotional development, in a safe and stimulating environment.",
+                service_educational_title: "📚 Educational Activities",
+                service_educational_text: "Game-based learning programs that foster children's cognitive, social, and emotional development.",
+                service_food_title: "🥗 Healthy Nutrition",
+                service_food_text: "We provide nutritious and balanced meals and snacks, adapted to the dietary needs of each child.",
+                service_hours_title: "🕐 Flexible Hours",
+                service_hours_text: "Full-time, part-time, and extended hours care options to adapt to families' needs.",
+                service_family_title: " Family Environment",
+                service_family_text: "Warm and family-like atmosphere where each child receives personalized attention and feels at home.",
+                service_preschool_title: "🎓 Preschool Preparation",
+                service_preschool_text: "Program designed to prepare children for preschool, developing basic social and academic skills.",
+                contact_title: "Contact",
+                contact_subtitle: "Get in touch with us for more information or to schedule a visit.",
+                contact_info_title: "Contact Information",
+                contact_hours: "🕐 Monday to Friday: 6:00 AM - 12:00 AM",
+                contact_ranking: "⭐ #1 Rated in Rancho Cucamonga",
+                contact_form_title: "Request Information",
+                form_name: "Full Name",
+                form_email: "Email Address",
+                form_phone: "Phone",
+                form_child_age: "Child's Age",
+                form_message: "Message",
+                form_submit: "Send Request",
+                footer_description: "Providing exceptional and family-oriented child care in Rancho Cucamonga.",
+                footer_links_title: "Quick Links",
+                footer_contact_title: "Contact",
+                footer_hours: "🕐 Mon-Fri: 6AM-12AM",
+                footer_copyright: "© 2026 Cavero Family Child Care. All rights reserved. | Ranked #1 in Rancho Cucamonga"
             }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        };
+
+        function changeLanguage(lang) {
+            // Actualizar textos con data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
                 }
             });
+
+            // Actualizar placeholders con data-i18n-placeholder
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+
+            // Actualizar título de la página
+            document.title = translations[lang].page_title;
+
+            // Actualizar atributo lang del HTML
+            document.documentElement.lang = lang;
+
+            // Actualizar botones activos
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Guardar preferencia en localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Cargar idioma guardado al iniciar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && translations[savedLang]) {
+                changeLanguage(savedLang);
+            }
         });
     </script>
 </body>
