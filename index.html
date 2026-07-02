@@ -286,6 +286,50 @@
             margin-bottom: 3rem;
         }
 
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            font-weight: bold;
+        }
+
         /* Calificaciones */
         #calificaciones {
             padding: 4rem 2rem;
@@ -461,6 +505,10 @@
             header {
                 top: 50px;
             }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -518,6 +566,44 @@
     <section id="galeria">
         <h2 class="section-title" data-i18n="gallery_title">Nuestras Instalaciones y Actividades</h2>
         <p class="section-subtitle" data-i18n="gallery_subtitle">Un vistazo a nuestro entorno diseñado para el aprendizaje y la diversión de los más pequeños.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/0a3b75d46-5cad-4674-9a0f-d2558f1faad81658.png" alt="Aula de actividades - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_1">Aulas Coloridas y Seguras</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/4a3b75d46-5cad-4674-9a0f-d2558f1faad86328.png" alt="Actividades educativas - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_2">Actividades Creativas</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/2a3b75d46-5cad-4674-9a0f-d2558f1faad82552.png" alt="Aprendizaje sensorial - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_3">Aprendizaje Sensorial</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/5a3b75d46-5cad-4674-9a0f-d2558f1faad83311.png" alt="Tiempo de círculo - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_4">Tiempo de Grupo</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/2a3b75d46-5cad-4674-9a0f-d2558f1faad87241.png" alt="Juguetes educativos - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_5">Juguetes Educativos</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/1a3b75d46-5cad-4674-9a0f-d2558f1faad86003.png" alt="Actividades grupales - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_6">Actividades Grupales</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/4a3b75d46-5cad-4674-9a0f-d2558f1faad85506.png" alt="Instalaciones modernas - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_7">Instalaciones Modernas</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/2a3b75d46-5cad-4674-9a0f-d2558f1faad81944.png" alt="Área de bebés - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_8">Área de Bebés</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://image.qwenlm.ai/public_source/347027d2-bd70-4c83-a85a-28e312397f9d/3a3b75d46-5cad-4674-9a0f-d2558f1faad84662.png" alt="Área de juegos exterior - Cavero Family Child Care">
+                <div class="gallery-caption" data-i18n="gallery_9">Área de Juegos Exterior</div>
+            </div>
+        </div>
     </section>
 
     <!-- Calificaciones -->
@@ -556,19 +642,19 @@
                 <p data-i18n="service_babies_text">Atención especializada para bebés con un enfoque en su desarrollo físico y emocional temprano, en un entorno seguro y estimulante.</p>
             </div>
             <div class="service-card">
-                <h3 data-i18n="service_educational_title"> Actividades Educativas</h3>
+                <h3 data-i18n="service_educational_title">📚 Actividades Educativas</h3>
                 <p data-i18n="service_educational_text">Programas de aprendizaje basados en juegos que fomentan el desarrollo cognitivo, social y emocional de los niños.</p>
             </div>
             <div class="service-card">
-                <h3 data-i18n="service_food_title"> Alimentación Saludable</h3>
+                <h3 data-i18n="service_food_title">🥗 Alimentación Saludable</h3>
                 <p data-i18n="service_food_text">Proporcionamos comidas y meriendas nutritivas y equilibradas, adaptadas a las necesidades dietéticas de cada niño.</p>
             </div>
             <div class="service-card">
-                <h3 data-i18n="service_hours_title"> Horarios Flexibles</h3>
+                <h3 data-i18n="service_hours_title">🕐 Horarios Flexibles</h3>
                 <p data-i18n="service_hours_text">Opciones de cuidado a tiempo completo, parcial y horarios extendidos para adaptarnos a las necesidades de las familias.</p>
             </div>
             <div class="service-card">
-                <h3 data-i18n="service_family_title"> Entorno Familiar</h3>
+                <h3 data-i18n="service_family_title">🏠 Entorno Familiar</h3>
                 <p data-i18n="service_family_text">Ambiente cálido y familiar donde cada niño recibe atención personalizada y se siente como en casa.</p>
             </div>
             <div class="service-card">
@@ -586,8 +672,8 @@
             <div class="contact-info">
                 <h3 data-i18n="contact_info_title">Información de Contacto</h3>
                 <p>📍 Rancho Cucamonga, California</p>
-                <p> (909) 850-9786</p>
-                <p>️ info@caverofamilychildcare.com</p>
+                <p>📞 (909) 850-9786</p>
+                <p>✉️ info@caverofamilychildcare.com</p>
                 <p data-i18n="contact_hours">🕐 Lunes a Viernes: 6:00 AM - 12:00 AM</p>
                 <p style="margin-top: 1rem; font-weight: bold; color: #f5a623;" data-i18n="contact_ranking">⭐ Calificación #1 en Rancho Cucamonga</p>
             </div>
@@ -653,6 +739,15 @@
                 award_badge: "BEST<br>2026",
                 gallery_title: "Nuestras Instalaciones y Actividades",
                 gallery_subtitle: "Un vistazo a nuestro entorno diseñado para el aprendizaje y la diversión de los más pequeños.",
+                gallery_1: "Aulas Coloridas y Seguras",
+                gallery_2: "Actividades Creativas",
+                gallery_3: "Aprendizaje Sensorial",
+                gallery_4: "Tiempo de Grupo",
+                gallery_5: "Juguetes Educativos",
+                gallery_6: "Actividades Grupales",
+                gallery_7: "Instalaciones Modernas",
+                gallery_8: "Área de Bebés",
+                gallery_9: "Área de Juegos Exterior",
                 ratings_title: "Reconocimientos y Calificaciones",
                 ratings_subtitle: "Nuestra excelencia en cuidado infantil ha sido reconocida por las principales plataformas de reseñas.",
                 rating_google_text: "Ranked #1 en Rancho Cucamonga",
@@ -663,7 +758,7 @@
                 rating_top_date: "Rancho Cucamonga, CA",
                 services_title: "Nuestros Servicios",
                 services_subtitle: "Ofrecemos una amplia gama de servicios diseñados para satisfacer las necesidades de desarrollo de cada niño.",
-                service_babies_title: " Cuidado para Bebés",
+                service_babies_title: "👶 Cuidado para Bebés",
                 service_babies_text: "Atención especializada para bebés con un enfoque en su desarrollo físico y emocional temprano, en un entorno seguro y estimulante.",
                 service_educational_title: "📚 Actividades Educativas",
                 service_educational_text: "Programas de aprendizaje basados en juegos que fomentan el desarrollo cognitivo, social y emocional de los niños.",
@@ -678,7 +773,7 @@
                 contact_title: "Contacto",
                 contact_subtitle: "Póngase en contacto con nosotros para obtener más información o programar una visita.",
                 contact_info_title: "Información de Contacto",
-                contact_hours: " Lunes a Viernes: 6:00 AM - 12:00 AM",
+                contact_hours: "🕐 Lunes a Viernes: 6:00 AM - 12:00 AM",
                 contact_ranking: "⭐ Calificación #1 en Rancho Cucamonga",
                 contact_form_title: "Solicitar Información",
                 form_name: "Nombre Completo",
@@ -710,6 +805,15 @@
                 award_badge: "BEST<br>2026",
                 gallery_title: "Our Facilities and Activities",
                 gallery_subtitle: "A glimpse into our environment designed for the learning and fun of the little ones.",
+                gallery_1: "Colorful and Safe Classrooms",
+                gallery_2: "Creative Activities",
+                gallery_3: "Sensory Learning",
+                gallery_4: "Group Time",
+                gallery_5: "Educational Toys",
+                gallery_6: "Group Activities",
+                gallery_7: "Modern Facilities",
+                gallery_8: "Baby Area",
+                gallery_9: "Outdoor Play Area",
                 ratings_title: "Awards and Ratings",
                 ratings_subtitle: "Our excellence in child care has been recognized by the leading review platforms.",
                 rating_google_text: "Ranked #1 in Rancho Cucamonga",
@@ -720,7 +824,7 @@
                 rating_top_date: "Rancho Cucamonga, CA",
                 services_title: "Our Services",
                 services_subtitle: "We offer a wide range of services designed to meet the developmental needs of each child.",
-                service_babies_title: " Baby Care",
+                service_babies_title: "👶 Baby Care",
                 service_babies_text: "Specialized care for babies with a focus on their early physical and emotional development, in a safe and stimulating environment.",
                 service_educational_title: "📚 Educational Activities",
                 service_educational_text: "Game-based learning programs that foster children's cognitive, social, and emotional development.",
@@ -728,7 +832,7 @@
                 service_food_text: "We provide nutritious and balanced meals and snacks, adapted to the dietary needs of each child.",
                 service_hours_title: "🕐 Flexible Hours",
                 service_hours_text: "Full-time, part-time, and extended hours care options to adapt to families' needs.",
-                service_family_title: " Family Environment",
+                service_family_title: "🏠 Family Environment",
                 service_family_text: "Warm and family-like atmosphere where each child receives personalized attention and feels at home.",
                 service_preschool_title: "🎓 Preschool Preparation",
                 service_preschool_text: "Program designed to prepare children for preschool, developing basic social and academic skills.",
